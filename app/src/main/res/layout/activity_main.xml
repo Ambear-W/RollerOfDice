@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/numberOfDiceInput"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="630dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Number of \nDice"
+        android:inputType="number"
+        android:maxLength="3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/D"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/D"
+        android:layout_width="30dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="630dp"
+        android:gravity="center"
+        android:text="D"
+        android:textSize="28dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/typeOfDiceInput"
+        app:layout_constraintStart_toEndOf="@+id/numberOfDiceInput"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/typeOfDiceInput"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="630dp"
+        android:entries="@array/diceType"
+        android:spinnerMode="dialog"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/modTypeGroup"
+        app:layout_constraintStart_toEndOf="@+id/D"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/modTypeGroup"
+        android:layout_width="40dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="630dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/modifierInput"
+        app:layout_constraintStart_toEndOf="@+id/typeOfDiceInput"
+        app:layout_constraintTop_toTopOf="parent"
+        android:checkedButton="@id/plus">
+
+        <RadioButton
+            android:id="@+id/plus"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:text="+"
+            tools:layout_editor_absoluteX="269dp"
+            tools:layout_editor_absoluteY="30dp" />
+
+        <RadioButton
+            android:id="@+id/minus"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:text="-"
+            tools:layout_editor_absoluteX="269dp"
+            tools:layout_editor_absoluteY="67dp" />
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/modifierInput"
+        android:layout_width="90dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginBottom="630dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Modifier"
+        android:inputType="number"
+        android:maxLength="2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/modTypeGroup"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/regRoll"
+        android:layout_width="148dp"
+        android:layout_height="51dp"
+        android:text="Roll"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.818" />
+
+    <TextView
+        android:id="@+id/rollResult"
+        android:layout_width="108dp"
+        android:layout_height="41dp"
+        android:text=""
+        android:gravity="center"
+        android:textSize="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
