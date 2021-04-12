@@ -23,6 +23,11 @@ public class MainActivity extends AppCompatActivity {
     TextView rollBreakDownText;
     Vibrator vibrator;
 
+    int numberOfDice = 0;
+    int modifier = 0;
+    int rollTotal = 0;
+    int randNumber = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
                 //gets the text from numberOfDiceInput
                 EditText editText =findViewById(R.id.numberOfDiceInput);
                 String temp = editText.getText().toString();
-                int numberOfDice = 0;
                 if (temp.equals("")){
                     numberOfDice = 1;
                 }else{
@@ -59,7 +63,6 @@ public class MainActivity extends AppCompatActivity {
                 editText =findViewById(R.id.modifierInput);
                 temp = editText.getText().toString();
 
-                int modifier = 0;
                 if (temp.equals("")){
                     modifier = 0;
                 }else {
@@ -67,11 +70,9 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 //does the actual rolling
-                int rollTotal = 0;
                 String rollBreakDown = "";
-                int randNumber = 0;
                 Random rand = new Random();
-                for(int i = 1; i != numberOfDice+1; i++){
+                for(int i = 1; i != numberOfDice + 1; i++){
                     randNumber = rand.nextInt(diceType) + 1;
 
                     //adds text to the final roll to change on screen
