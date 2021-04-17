@@ -3,6 +3,7 @@ package com.example.rollerofdice;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.icu.util.Output;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.view.View;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -23,6 +25,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.io.Writer;
 import java.util.Random;
 
 import static java.sql.DriverManager.println;
@@ -173,7 +176,7 @@ public class MainActivity extends AppCompatActivity {
                     File myExternalFile = new File(getExternalFilesDir(filepath), filename);
                     FileOutputStream fos = null;
                     try{
-                        fos = new FileOutputStream(myExternalFile);
+                        fos = new FileOutputStream(myExternalFile, true);
                         fos.write(fileContent.getBytes());
                     } catch (FileNotFoundException e) {
                         e.printStackTrace();
