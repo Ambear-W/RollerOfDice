@@ -6,6 +6,7 @@ import android.content.Context;
 import android.icu.util.Output;
 import android.os.Bundle;
 import android.os.Vibrator;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -59,6 +60,28 @@ public class MainActivity extends AppCompatActivity {
         final Button history = findViewById(R.id.history);
         //File myExternalFile = new File(getExternalFilesDir(filepath), filename);
 
+        final Button clearHistory = findViewById(R.id.clearHistory);
+
+        clearHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                fileContent = "";
+                File myExternalFile = new File(getExternalFilesDir(filepath), filename);
+                FileOutputStream fos = null;
+                try{
+                    fos = new FileOutputStream(myExternalFile);
+                    fos.write(fileContent.getBytes());
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                historyText.setText("The history has been cleared!");
+            }
+        });
+
         history.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,6 +115,8 @@ public class MainActivity extends AppCompatActivity {
                     String fileContents = stringBuilder.toString();
                     historyText.setText(fileContents);
                 }
+
+                historyText.setMovementMethod(new ScrollingMovementMethod());
 
             }
         });
@@ -189,7 +214,6 @@ public class MainActivity extends AppCompatActivity {
                 modifier = 0;
                 rollTotal = 0;
                 randNumber = 0;
-
             }
         });
     }
