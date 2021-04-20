@@ -2,8 +2,6 @@ package com.example.rollerofdice;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
-import android.icu.util.Output;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.text.method.ScrollingMovementMethod;
@@ -14,25 +12,16 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
 import java.util.Random;
 
-import static java.sql.DriverManager.println;
-
 public class MainActivity extends AppCompatActivity {
-
     RadioGroup radioGroupMod;
     RadioButton plus, minus;
     TextView finalResult;
@@ -55,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         final Button regRoll = findViewById(R.id.regRoll);
+
         vibrator = (Vibrator)getSystemService(VIBRATOR_SERVICE);
 
         final Button history = findViewById(R.id.history);
@@ -106,7 +96,6 @@ public class MainActivity extends AppCompatActivity {
                         stringBuilder.append(line).append('\n');
                         line = br.readLine();
                     }
-
                 } catch(FileNotFoundException e){
                     e.printStackTrace();
                 }catch (IOException e){
@@ -115,9 +104,7 @@ public class MainActivity extends AppCompatActivity {
                     String fileContents = stringBuilder.toString();
                     historyText.setText(fileContents);
                 }
-
                 historyText.setMovementMethod(new ScrollingMovementMethod());
-
             }
         });
 
